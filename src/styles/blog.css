@@ -1,0 +1,51 @@
+/* --- Ajuste del Contenido Principal --- */
+.main-content {
+  margin-left: 0; /* Eliminamos el margen de 250px del sidebar */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  width: 100%;
+}
+
+.text-cacao {
+  color: #4e342e;
+}
+
+.blog-header-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 3.5rem;
+}
+
+/* --- Tarjetas del Blog --- */
+.blog-card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: #fff;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn-pink {
+  background-color: #ff85a1 !important;
+  color: white !important;
+  border-radius: 15px !important;
+  font-weight: 600;
+  border: none !important;
+  padding: 8px 20px;
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Aseguramos que las filas de Bootstrap se justifiquen al centro */
+.row {
+  justify-content: center;
+}

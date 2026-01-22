@@ -1,0 +1,117 @@
+/* src/styles/contacto.css */
+
+/* --- BANDAS LATERALES (Decoración) --- */
+.banda-lateral {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 60px; /* Un poco más finas */
+    background-color: #7B5949; /* Chocolate */
+    z-index: -1; /* Detrás de todo */
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.banda-izquierda { left: 0; }
+.banda-derecha { right: 0; }
+
+/* Ocultar bandas en celular para ganar espacio */
+@media (max-width: 768px) {
+    .banda-lateral { display: none; }
+}
+
+/* --- ANIMACIÓN ENTRADA --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-container {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* --- TEXTOS E INFO --- */
+.info-seccion {
+    color: #4e342e;
+    padding: 20px;
+}
+
+.info-seccion h2 {
+    font-family: 'Pacifico', cursive; /* Tu fuente característica */
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.destacado {
+    background-color: #fcf0cf; /* Crema */
+    padding: 20px;
+    border-left: 5px solid #ff9999; /* Borde rosa */
+    margin-top: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* --- REDES SOCIALES --- */
+.redes-contacto {
+    margin-top: 30px;
+}
+
+.item-red {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #4e342e;
+    font-weight: 600;
+    transition: transform 0.3s ease, color 0.3s;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    width: fit-content;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.item-red:hover {
+    transform: translateX(10px);
+    color: #ff85a1;
+    background: #fff5f8;
+}
+
+/* --- FORMULARIO (Tarjeta Derecha) --- */
+.card-contacto {
+    border-radius: 20px;
+    border: none;
+    background: white;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(78, 52, 46, 0.1);
+}
+
+.form-control {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    background-color: #fff;
+    border-color: #ff9999;
+    box-shadow: 0 0 0 3px rgba(255, 153, 153, 0.2);
+}
+
+/* BOTÓN ROSA PERSONALIZADO */
+.btn-pink {
+    background-color: #ff85a1;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-pink:hover {
+    background-color: #e06c88;
+    transform: translateY(-2px);
+    color: white;
+}

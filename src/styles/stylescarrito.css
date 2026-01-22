@@ -1,0 +1,293 @@
+/* ===============================
+   ESTILOS BASE (Compatibilidad)
+=============================== */
+/* Heredamos el body de home.css, pero aseguramos el fondo aquí por si acaso */
+body {
+  background-color: #F5F1EA;
+  color: #5d4037;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor Principal (Para Catálogo y Categorías) */
+.catalog-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 30px;
+  padding: 0 20px;
+  min-height: 60vh;
+}
+
+/* ===============================
+   SIDEBAR (Barra Lateral)
+=============================== */
+.categories-sidebar {
+  flex: 1; /* Ocupa 1/4 del ancho */
+  min-width: 220px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  height: fit-content;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid #f0e6d2;
+}
+
+.categories-sidebar h2 {
+  font-family: 'Pacifico', cursive;
+  color: #4e342e;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #f8c8dc; /* Rosa pastel */
+  padding-bottom: 10px;
+}
+
+.categories-sidebar ul { list-style: none; padding: 0; }
+.categories-sidebar li { margin-bottom: 10px; }
+
+.categories-sidebar a, 
+.categories-sidebar li { /* A veces el JS pone click en el li */
+  text-decoration: none;
+  color: #5d4037;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.categories-sidebar li:hover {
+  background-color: #fdf0f6; /* Fondo rosa muy suave al pasar mouse */
+  color: #e85a9d;
+}
+
+/* ===============================
+   GRILLA DE PRODUCTOS
+=============================== */
+.products-area { flex: 3; }
+
+.product-grid { /* Ojo: Tu JS busca el ID 'product-grid', usamos la clase para estilo */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* TARJETA DE PRODUCTO (Aquí arreglamos las imágenes gigantes) */
+.product-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: #f8c8dc;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* IMAGEN CONTROLADA */
+.product-card img {
+  width: 100%;
+  height: 200px; /* ALTO FIJO: Esto evita el efecto "watom" */
+  object-fit: cover; /* Recorta la imagen para que no se deforme */
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #4e342e;
+  min-height: 50px; /* Para alinear títulos de 2 líneas */
+}
+
+.product-card .price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #e85a9d;
+  margin-bottom: 15px;
+}
+
+/* BOTONES DENTRO DE LA TARJETA */
+.product-card .buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.product-card button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 0.9rem;
+}
+
+.btn-add {
+  background-color: skyblue;
+  color: #5d4037;
+}
+.btn-add:hover { background-color: #87ceeb; color: white; }
+
+.btn-detail {
+  background-color: #eee;
+  color: #555;
+}
+.btn-detail:hover { background-color: #ddd; }
+
+
+/* ===============================
+   ESTILOS PAGINA CARRITO
+/* =========================================
+   ESTILOS DE LA PÁGINA CARRITO (Faltantes)
+   ========================================= */
+
+.carrito-main-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    min-height: 70vh;
+}
+
+.titulo-carrito {
+    font-family: 'Pacifico', cursive;
+    color: #4e342e;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* TABLA */
+.tabla-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    overflow-x: auto;
+    margin-bottom: 40px;
+}
+
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.tabla-carrito th {
+    background-color: #fcf0cf;
+    color: #4e342e;
+    padding: 20px;
+    text-align: left;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2rem;
+}
+
+.tabla-carrito td {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.item-img-carrito {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cantidad-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-cantidad {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555;
+}
+
+.btn-eliminar {
+    background: #ffeded;
+    color: #ff4d4d;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* RESUMEN Y CUPÓN */
+.resumen-compra {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.cupon-box {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    height: fit-content;
+}
+
+.total-box {
+    flex: 1;
+    min-width: 300px;
+    background: #4e342e;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(78, 52, 46, 0.3);
+}
+
+.fila-resumen {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.total-final {
+    font-size: 2rem;
+    font-weight: bold;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.btn-pagar {
+    background-color: #87CEEB;
+    color: #4e342e;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-pagar:hover {
+    background-color: #add8e6;
+    transform: scale(1.02);
+}

@@ -1,0 +1,187 @@
+/* src/styles/admin.css */
+
+/* --- LAYOUT PRINCIPAL --- */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #F5F1EA;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- SIDEBAR (Barra Lateral) --- */
+.admin-sidebar {
+    width: 260px;
+    background-color: #FCF0CF; /* Crema */
+    padding: 2rem;
+    border-right: 2px solid #e0d8c3;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: #4e342e;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.nav-section {
+    margin-bottom: 20px;
+}
+
+.nav-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.nav-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #5d4037;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 5px;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background-color: #fff;
+    color: skyblue;
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.btn-logout {
+    color: #ff6b6b;
+}
+
+.btn-logout:hover {
+    background-color: #ffe5e5;
+    color: #d32f2f;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.admin-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.content-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e0d8c3;
+    padding-bottom: 15px;
+}
+
+.content-header h1 {
+    font-family: 'Pacifico', cursive;
+    color: #4e342e;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* --- TABLAS Y LISTAS --- */
+.admin-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th {
+    background: #f9f9f9;
+    padding: 15px;
+    text-align: left;
+    color: #4e342e;
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.img-mini {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.btn-action {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+.btn-crear { background: #87CEEB; color: #4e342e; padding: 10px 20px; border-radius: 50px; }
+.btn-crear:hover { background: #6cbbd9; }
+
+.btn-borrar { background: #ffeded; color: #ff4d4d; }
+.btn-borrar:hover { background: #ffcccc; }
+
+/* --- FORMULARIOS --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #5d4037;
+}
+
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #FCF0CF;
+    border-radius: 10px;
+    font-family: inherit;
+}
+
+.input-group input:focus {
+    border-color: skyblue;
+    outline: none;
+}
+
+/* --- AYUDA (Support Cards) --- */
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.support-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.avatar { font-size: 3rem; display: block; margin-bottom: 10px; }
+.role { color: skyblue; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }

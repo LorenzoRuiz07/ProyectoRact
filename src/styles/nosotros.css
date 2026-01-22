@@ -1,0 +1,97 @@
+/* =========================================
+   ESTILOS PÁGINA NOSOTROS
+   ========================================= */
+
+/* --- BANDAS LATERALES (Igual que en las otras páginas) --- */
+.banda-lateral {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    background-color: #7B5949; /* Chocolate */
+    z-index: -1;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.15);
+}
+.banda-izquierda { left: 0; }
+.banda-derecha { right: 0; }
+
+/* Ajuste móvil para bandas */
+@media (max-width: 992px) {
+    .banda-lateral { width: 40px; }
+}
+@media (max-width: 768px) {
+    .banda-lateral { display: none; }
+}
+
+/* --- ANIMACIÓN ENTRADA --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-container {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* --- TEXTOS --- */
+.text-cacao { 
+    color: #4e342e; 
+}
+
+.titulo-historia {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #4e342e;
+}
+
+.seccion-historia-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- CUADRO DESTACADO (Historia) --- */
+.destacado {
+    background-color: #fcf0cf; /* Crema suave */
+    padding: 40px 50px;
+    border-left: 8px solid #ff85a1; /* Línea rosa lateral */
+    border-radius: 15px;
+    margin-bottom: 4rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.destacado p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #5d4037;
+    margin-bottom: 1.5rem;
+    text-align: justify; /* Texto justificado para elegancia */
+}
+
+.destacado p:last-child { 
+    margin-bottom: 0; 
+}
+
+/* --- TARJETAS DE VALORES --- */
+.card-valor {
+    border: none;
+    border-radius: 35px;
+    background-color: #fff;
+    padding: 30px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    height: 100%; /* Para que todas midan lo mismo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.card-valor:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 133, 161, 0.2); /* Sombra rosada al pasar mouse */
+}
+
+.emoji-valor {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 15px;
+}

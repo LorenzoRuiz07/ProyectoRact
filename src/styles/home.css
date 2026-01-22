@@ -1,0 +1,177 @@
+/* =========================================
+   ESTILOS GENERALES (HOME & NAVBAR)
+   ========================================= */
+
+body {
+    background-color: #F5F1EA;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    /* "flex-wrap: nowrap" es la clave para anular el comportamiento de Bootstrap */
+    display: flex !important;
+    flex-wrap: nowrap !important; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FCF0CF; /* Crema/Amarillo suave */
+    padding: 1rem 2rem;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra sutil para separar del fondo */
+}
+
+.logo {
+    font-size: 36px; /* Ajustado para que no ocupe demasiado */
+    font-family: 'Pacifico', cursive;
+    color: #4e342e;
+    white-space: nowrap; /* El logo nunca debe romperse en dos líneas */
+    flex-shrink: 0;      /* El logo no se debe encoger */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto; /* Empuja los links a la derecha (pegaditos al botón) */
+    align-items: center;
+    gap: 15px; /* Espacio entre cada link */
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2rem;
+    color: #87CEEB; /* Skyblue original */
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Evita que los textos de los links se partan */
+}
+
+.nav-links a:hover {
+    background-color: #87CEEB;
+    color: #5d4037;
+    transform: translateY(-2px);
+}
+
+/* --- BOTÓN DE LOGIN --- */
+.btnLogin {
+    margin-left: 20px; /* Separa el botón del último link */
+    flex-shrink: 0;    /* IMPORTANTÍSIMO: Impide que el botón se aplaste o baje */
+}
+
+.btnLogin button {
+    background-color: #87CEEB; /* Skyblue */
+    color: #5d4037;
+    border: 2px solid #5d4037;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btnLogin button:hover {
+    background-color: #4e342e;
+    color: white;
+    border-color: #4e342e;
+}
+
+/* --- HERO SECTION (Home) --- */
+/* =========================================
+   HERO SECTION (SPLIT SCREEN REAL)
+   ========================================= */
+
+.hero {
+    display: flex;
+    width: 100%;       /* Ocupa todo el ancho de la ventana */
+    min-height: 90vh;  /* Ocupa casi toda la altura vertical */
+    padding: 0;        /* SIN rellenos generales */
+    margin: 0;
+    overflow: hidden;  /* Evita barras de desplazamiento si la imagen es gigante */
+    background-color: #F5F1EA;
+}
+
+/* --- MITAD IZQUIERDA (TEXTO) --- */
+.hero-text {
+    width: 50%; /* Exactamente la mitad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    padding: 0 6%; /* Relleno interno para que el texto respire */
+    box-sizing: border-box;
+}
+
+.TituloIMG {
+    font-family: 'Pacifico', cursive;
+    font-size: 5rem;
+    color: #4e342e;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.pIMG p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #5d4037;
+    margin-bottom: 20px;
+    max-width: 600px; /* Evita que el texto sea demasiado ancho para leer */
+}
+
+/* --- MITAD DERECHA (IMAGEN GIGANTE) --- */
+.hero-img {
+    width: 50%; /* Exactamente la otra mitad */
+    height: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCF0CF; /* Opcional: un fondo de color en el lado de la imagen */
+}
+
+.hero-img img {
+    width: 100%;
+    height: 100%;
+    
+    /* IMPORTANTE: 
+       'cover' hará que la imagen llene TODO el espacio (cortando bordes si es necesario).
+       Si prefieres ver la torta entera sin cortar, cambia a 'contain'. 
+    */
+    object-fit: cover; 
+    display: block;
+}
+
+/* =========================================
+   RESPONSIVE (CELULARES)
+   ========================================= */
+@media (max-width: 968px) {
+    .hero {
+        flex-direction: column; /* Apilar verticalmente */
+        height: auto;
+        min-height: auto;
+    }
+
+    .hero-img {
+        order: -1; /* Manda la imagen arriba */
+        width: 100%;
+        height: 50vh; /* En celular, la imagen ocupa la mitad de la pantalla */
+    }
+
+    .hero-text {
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .TituloIMG {
+        font-size: 3rem;
+    }
+}

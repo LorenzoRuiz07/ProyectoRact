@@ -1,0 +1,79 @@
+/* =========================================
+   ESTILOS DE SERVICIOS (Estética solamente)
+   ========================================= */
+
+/* Ajuste del contenedor para no chocar con las bandas */
+.servicios-container {
+    padding: 40px 20px;
+    /* Esto es importante para que Bootstrap no ocupe el ancho total y tape las bandas */
+    max-width: 85% !important; 
+    z-index: 1; 
+}
+
+/* Tarjetas */
+.card-servicio {
+    border: none;
+    border-radius: 25px;
+    background-color: #fff;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card-servicio:hover {
+    transform: translateY(-10px);
+}
+
+.icon-servicio {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.card-servicio h4 {
+    font-weight: 700;
+    color: #4e342e;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.text-muted {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Bandas Laterales */
+.banda-lateral {
+    position: fixed;
+    top: 0; bottom: 0; width: 80px;
+    background-color: #7B5949;
+    z-index: -1;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.15);
+}
+.banda-izquierda { left: 0; }
+.banda-derecha { right: 0; }
+
+/* Responsive para bandas */
+@media (max-width: 992px) {
+    .servicios-container { max-width: 100% !important; }
+    .banda-lateral { width: 40px; }
+}
+@media (max-width: 768px) {
+    .banda-lateral { display: none; }
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-container {
+    animation: fadeIn 0.8s ease-out forwards;
+}
