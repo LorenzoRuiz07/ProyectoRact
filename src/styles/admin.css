@@ -1,6 +1,4 @@
-/* src/styles/admin.css */
 
-/* --- LAYOUT PRINCIPAL --- */
 .admin-layout {
     display: flex;
     min-height: 100vh;
@@ -8,10 +6,9 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* --- SIDEBAR (Barra Lateral) --- */
 .admin-sidebar {
     width: 260px;
-    background-color: #FCF0CF; /* Crema */
+    background-color: #FCF0CF; 
     padding: 2rem;
     border-right: 2px solid #e0d8c3;
     display: flex;
@@ -70,7 +67,6 @@
     color: #d32f2f;
 }
 
-/* --- CONTENIDO PRINCIPAL --- */
 .admin-content {
     flex: 1;
     padding: 40px;
@@ -90,7 +86,6 @@
     margin: 0;
 }
 
-/* --- TABLAS Y LISTAS --- */
 .admin-card {
     background: white;
     padding: 30px;
@@ -124,7 +119,6 @@
     border-radius: 10px;
 }
 
-/* --- BOTONES DE ACCIÓN --- */
 .btn-action {
     border: none;
     padding: 8px 15px;
@@ -141,7 +135,7 @@
 .btn-borrar { background: #ffeded; color: #ff4d4d; }
 .btn-borrar:hover { background: #ffcccc; }
 
-/* --- FORMULARIOS --- */
+
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -168,7 +162,6 @@
     outline: none;
 }
 
-/* --- AYUDA (Support Cards) --- */
 .support-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

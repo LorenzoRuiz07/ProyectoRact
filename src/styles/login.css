@@ -1,16 +1,13 @@
-/* login.css */
 
-/* Contenedor principal centrado */
 .login-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
   padding: 20px;
-  background: #F5F1EA; /* Fondo crema Umai */
+  background: #F5F1EA; 
 }
 
-/* Tarjeta blanca */
 .login-card {
   background: white;
   padding: 40px;
@@ -29,7 +26,6 @@
   margin-bottom: 25px;
 }
 
-/* Inputs */
 .input-group {
   margin-bottom: 20px;
   text-align: left;
@@ -54,10 +50,9 @@
 
 .input-group input:focus {
   outline: none;
-  border-color: #ff85a1; /* Rosa */
+  border-color: #ff85a1; 
 }
 
-/* Botones */
 .btn-login {
   width: 100%;
   background-color: #ff85a1;

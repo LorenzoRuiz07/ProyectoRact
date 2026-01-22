@@ -4,8 +4,7 @@ import '../styles/login.css';
 
 const Registro = () => {
   const navigate = useNavigate();
-  
-  // Estado para los campos
+
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -23,7 +22,6 @@ const Registro = () => {
   const handleRegistro = (e) => {
     e.preventDefault();
 
-    // 1. Validaciones básicas
     if (formData.password !== formData.confirmPassword) {
       setError("Las contraseñas no coinciden ❌");
       return;
@@ -33,8 +31,6 @@ const Registro = () => {
       return;
     }
 
-    // 2. Guardar usuario en LocalStorage (Simulando base de datos)
-    // Guardamos un objeto simple con email y clave
     const usuarioNuevo = {
       nombre: formData.nombre,
       email: formData.email,

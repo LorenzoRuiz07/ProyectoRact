@@ -1,10 +1,10 @@
-/* --- Ajuste del Contenido Principal --- */
+
 .main-content {
-  margin-left: 0; /* Eliminamos el margen de 250px del sidebar */
+  margin-left: 0; 
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra el contenido horizontalmente */
+  align-items: center; 
   width: 100%;
 }
 
@@ -17,7 +17,7 @@
   font-size: 3.5rem;
 }
 
-/* --- Tarjetas del Blog --- */
+
 .blog-card {
   border: none;
   border-radius: 20px;
@@ -45,7 +45,7 @@
   object-fit: cover;
 }
 
-/* Aseguramos que las filas de Bootstrap se justifiquen al centro */
+
 .row {
   justify-content: center;
 }

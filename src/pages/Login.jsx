@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/login.css'; // Asegúrate de tener este archivo (el que subiste)
+import '../styles/login.css'; 
 
 const Login = () => {
   const navigate = useNavigate();
   
-  // Estados para los inputs
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,22 +12,20 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // 1. VALIDACIÓN DE ADMINISTRADOR (Hardcodeado por seguridad básica)
     if (email === 'admin@umai.com' && password === 'admin123') {
         
-        // Guardamos la "llave" en el navegador
         localStorage.setItem('isAdmin', 'true'); 
         
         alert("¡Bienvenido Admin! 🧁");
-        navigate('/admin'); // 👉 REDIRIGE AL PANEL
+        navigate('/admin'); 
     } 
-    // 2. VALIDACIÓN DE USUARIO NORMAL (Simulada)
+   
     else if (email.length > 0 && password.length > 0) {
-        localStorage.removeItem('isAdmin'); // Aseguramos que no sea admin
+        localStorage.removeItem('isAdmin'); 
         alert("¡Bienvenido cliente! 🍪");
-        navigate('/'); // Redirige al Home
+        navigate('/'); 
     } 
-    // 3. ERROR
+
     else {
         setError("Correo o contraseña incorrectos");
     }

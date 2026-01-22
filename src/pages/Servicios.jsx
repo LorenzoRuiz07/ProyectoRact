@@ -5,12 +5,10 @@ import '../styles/servicios.css';
 const Servicios = () => {
   return (
     <div className="fade-in-container" style={{ minHeight: "100vh", position: "relative" }}>
-      
-      {/* Bandas Laterales */}
+  
       <div className="banda-lateral banda-izquierda"></div>
       <div className="banda-lateral banda-derecha"></div>
 
-      {/* Usamos 'container' de Bootstrap */}
       <div className="servicios-container container">
         
         <div className="header-servicios text-center mb-5">
@@ -23,10 +21,8 @@ const Servicios = () => {
           </p>
         </div>
 
-        {/* FILA DE BOOTSTRAP (row) */}
         <div className="row g-4 justify-content-center">
-          
-          {/* Card 1 */}
+
           <div className="col-12 col-md-6 col-lg-4">
             <div className="card-servicio h-100">
               <span className="icon-servicio">☕</span>
@@ -38,7 +34,6 @@ const Servicios = () => {
             </div>
           </div>
 
-          {/* Card 2 */}
           <div className="col-12 col-md-6 col-lg-4">
             <div className="card-servicio h-100">
               <span className="icon-servicio">🍬</span>
@@ -50,7 +45,6 @@ const Servicios = () => {
             </div>
           </div>
 
-          {/* Card 3 */}
           <div className="col-12 col-md-6 col-lg-4">
             <div className="card-servicio h-100">
               <span className="icon-servicio">🎁</span>
@@ -61,8 +55,7 @@ const Servicios = () => {
               </p>
             </div>
           </div>
-
-          {/* Card 4 (Con offset para centrar si quedan 2 abajo) */}
+}
           <div className="col-12 col-md-6 col-lg-4">
             <div className="card-servicio h-100">
               <span className="icon-servicio">🎂</span>
@@ -74,7 +67,6 @@ const Servicios = () => {
             </div>
           </div>
 
-          {/* Card 5 */}
           <div className="col-12 col-md-6 col-lg-4">
             <div className="card-servicio h-100">
               <span className="icon-servicio">🍫</span>

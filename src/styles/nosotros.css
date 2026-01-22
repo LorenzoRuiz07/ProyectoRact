@@ -1,21 +1,16 @@
-/* =========================================
-   ESTILOS PÁGINA NOSOTROS
-   ========================================= */
 
-/* --- BANDAS LATERALES (Igual que en las otras páginas) --- */
 .banda-lateral {
     position: fixed;
     top: 0;
     bottom: 0;
     width: 80px;
-    background-color: #7B5949; /* Chocolate */
+    background-color: #7B5949; 
     z-index: -1;
     box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.15);
 }
 .banda-izquierda { left: 0; }
 .banda-derecha { right: 0; }
 
-/* Ajuste móvil para bandas */
 @media (max-width: 992px) {
     .banda-lateral { width: 40px; }
 }
@@ -23,7 +18,6 @@
     .banda-lateral { display: none; }
 }
 
-/* --- ANIMACIÓN ENTRADA --- */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -33,7 +27,6 @@
     animation: fadeIn 0.8s ease-out forwards;
 }
 
-/* --- TEXTOS --- */
 .text-cacao { 
     color: #4e342e; 
 }
@@ -51,11 +44,10 @@
     padding: 20px;
 }
 
-/* --- CUADRO DESTACADO (Historia) --- */
 .destacado {
-    background-color: #fcf0cf; /* Crema suave */
+    background-color: #fcf0cf; 
     padding: 40px 50px;
-    border-left: 8px solid #ff85a1; /* Línea rosa lateral */
+    border-left: 8px solid #ff85a1; 
     border-radius: 15px;
     margin-bottom: 4rem;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
@@ -66,14 +58,14 @@
     line-height: 1.8;
     color: #5d4037;
     margin-bottom: 1.5rem;
-    text-align: justify; /* Texto justificado para elegancia */
+    text-align: justify; 
 }
 
 .destacado p:last-child { 
     margin-bottom: 0; 
 }
 
-/* --- TARJETAS DE VALORES --- */
+
 .card-valor {
     border: none;
     border-radius: 35px;
@@ -87,7 +79,7 @@
 
 .card-valor:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(255, 133, 161, 0.2); /* Sombra rosada al pasar mouse */
+    box-shadow: 0 15px 40px rgba(255, 133, 161, 0.2);
 }
 
 .emoji-valor {

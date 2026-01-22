@@ -1,24 +1,20 @@
 import React from 'react';
-import '../styles/home.css';      // Estilos base
-import '../styles/nosotros.css';  // Estilos específicos
+import '../styles/home.css';      
+import '../styles/nosotros.css';  
 
 const Nosotros = () => {
   return (
     <div className="fade-in-container position-relative" style={{ minHeight: "100vh", paddingBottom: "50px" }}>
       
-      {/* 1. BANDAS LATERALES */}
       <div className="banda-lateral banda-izquierda"></div>
       <div className="banda-lateral banda-derecha"></div>
 
-      {/* 2. CONTENIDO PRINCIPAL */}
       <div className="container seccion-historia-container" style={{ paddingTop: "50px" }}>
         
-        {/* Título */}
         <div className="text-center">
             <h1 className="titulo-historia">Nuestra Historia</h1>
         </div>
 
-        {/* Sección de Texto Destacado */}
         <div className="destacado">
             <p>
                 Todo comenzó en el verano de 2010, en la pequeña cocina de la abuela Rosa. 
@@ -37,7 +33,6 @@ const Nosotros = () => {
             </p>
         </div>
 
-        {/* Sección de Valores */}
         <div className="text-center mb-5">
             <h2 style={{ fontFamily: "'Pacifico', cursive", fontSize: "3rem", color: "#4e342e" }}>
                 Nuestros Valores
@@ -46,7 +41,6 @@ const Nosotros = () => {
 
         <div className="row g-4 justify-content-center">
             
-            {/* Valor 1 */}
             <div className="col-12 col-md-4">
                 <div className="card-valor">
                     <span className="emoji-valor">🥚</span>
@@ -57,8 +51,6 @@ const Nosotros = () => {
                     </p>
                 </div>
             </div>
-
-            {/* Valor 2 */}
             <div className="col-12 col-md-4">
                 <div className="card-valor">
                     <span className="emoji-valor">❤️</span>
@@ -70,7 +62,6 @@ const Nosotros = () => {
                 </div>
             </div>
 
-            {/* Valor 3 */}
             <div className="col-12 col-md-4">
                 <div className="card-valor">
                     <span className="emoji-valor">🌱</span>

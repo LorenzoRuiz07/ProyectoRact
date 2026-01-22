@@ -47,22 +47,18 @@ const Detalle = () => {
   };
 
   return (
-    // FONDO: Centra todo en la pantalla
     <div className="container-fluid d-flex justify-content-center align-items-center" style={{ minHeight: "85vh", padding: "20px" }}>
       
-      {/* TARJETA SUPER COMPACTA (Max Width 750px) */}
       <div 
         className="card shadow-lg border-0" 
         style={{ 
-          maxWidth: '750px',   // <--- AQUÍ LO ACHICAMOS (Antes era 900px o 1000px)
+          maxWidth: '750px',   
           width: '100%', 
           borderRadius: '20px',
-          padding: '30px',     // Menos relleno interno
+          padding: '30px',   
           backgroundColor: '#fff'
         }}
       >
-        
-        {/* Botón Volver */}
         <button 
           className="btn-volver mb-2" 
           onClick={() => navigate('/catalogo')}
@@ -72,8 +68,6 @@ const Detalle = () => {
         </button>
 
         <div className="row align-items-center">
-          
-          {/* FOTO (Izquierda) */}
           <div className="col-md-5 text-center mb-3 mb-md-0">
             <img 
               src={`/${producto.imagen}`} 
@@ -81,21 +75,19 @@ const Detalle = () => {
               className="shadow-sm" 
               style={{ 
                 width: '100%', 
-                height: '280px',   // <--- FOTO MÁS PEQUEÑA (Antes 350px)
+                height: '280px',  
                 objectFit: 'cover', 
                 borderRadius: '15px' 
               }} 
             />
           </div>
 
-          {/* INFO (Derecha) */}
           <div className="col-md-7 ps-md-4">
             
             <span className="text-muted text-uppercase fw-bold" style={{ fontSize: "0.75rem", letterSpacing: "1px" }}>
               {producto.categoria}
             </span>
             
-            {/* Título un poco más chico */}
             <h2 className="my-1" style={{ fontFamily: "'Pacifico', cursive", color: '#4e342e', fontSize: '1.8rem' }}>
               {producto.nombre}
             </h2>
@@ -108,7 +100,6 @@ const Detalle = () => {
               ${producto.precio.toLocaleString("es-CL")}
             </div>
 
-            {/* Caja de texto más compacta */}
             <div className="mensaje-box mb-3 p-2" style={{ background: '#f9f9f9', borderRadius: '10px' }}>
               <textarea 
                 className="form-control border-0 bg-transparent"

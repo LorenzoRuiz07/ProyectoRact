@@ -1,30 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { productos as dataInicial } from '../data'; // Tu data base
+import { productos as dataInicial } from '../data';
 import '../styles/admin.css';
 
 const Admin = () => {
   const navigate = useNavigate();
-  
-  // ESTADO: ¿Qué pestaña estamos viendo? 
-  // Opciones: 'productos', 'usuarios', 'nuevo_prod', 'nuevo_user', 'ayuda'
+
   const [vista, setVista] = useState('productos');
-  
-  // ESTADOS DE DATOS (Simulando Base de Datos)
+
   const [listaProductos, setListaProductos] = useState([]);
   const [listaUsuarios, setListaUsuarios] = useState([]);
 
-  // FORMULARIOS (Estados temporales)
+
   const [formProd, setFormProd] = useState({ nombre: '', precio: '', categoria: 'Pasteles', imagen: '', descripcion: '' });
   const [formUser, setFormUser] = useState({ nombre: '', email: '', rol: 'trab' });
 
-  // 1. CARGAR DATOS AL INICIO
+
   useEffect(() => {
     // Seguridad básica
     const isAdmin = localStorage.getItem("isAdmin");
     if (!isAdmin) { navigate('/login'); return; }
 
-    // Cargar Productos
+
     const prodsGuardados = JSON.parse(localStorage.getItem("productos_db"));
     if (prodsGuardados) setListaProductos(prodsGuardados);
     else {
@@ -32,7 +29,7 @@ const Admin = () => {
         localStorage.setItem("productos_db", JSON.stringify(dataInicial));
     }
 
-    // Cargar Usuarios (Dummy data si está vacío)
+ 
     const usersGuardados = JSON.parse(localStorage.getItem("usuarios_db")) || [
         { id: 1, nombre: "Admin Supremo", email: "admin@umai.com", rol: "admin" },
         { id: 2, nombre: "Juan Pastelero", email: "juan@umai.com", rol: "trab" }
@@ -40,7 +37,7 @@ const Admin = () => {
     setListaUsuarios(usersGuardados);
   }, [navigate]);
 
-  // --- LÓGICA DE PRODUCTOS ---
+
   const guardarProducto = (e) => {
     e.preventDefault();
     const nuevo = { ...formProd, id: "NUEVO" + Date.now(), precio: Number(formProd.precio) };
@@ -49,7 +46,7 @@ const Admin = () => {
     localStorage.setItem("productos_db", JSON.stringify(actualizada));
     alert("¡Producto Guardado! 🍰");
     setFormProd({ nombre: '', precio: '', categoria: 'Pasteles', imagen: '', descripcion: '' }); // Reset
-    setVista('productos'); // Volver a la lista
+    setVista('productos'); 
   };
 
   const eliminarProducto = (id) => {
@@ -59,7 +56,7 @@ const Admin = () => {
     localStorage.setItem("productos_db", JSON.stringify(filtrada));
   };
 
-  // --- LÓGICA DE USUARIOS ---
+
   const guardarUsuario = (e) => {
     e.preventDefault();
     const nuevo = { ...formUser, id: Date.now() };
@@ -78,10 +75,10 @@ const Admin = () => {
     localStorage.setItem("usuarios_db", JSON.stringify(filtrada));
   };
 
-  // --- RENDERIZADO DEL CONTENIDO DINÁMICO ---
+
   const renderContenido = () => {
     switch (vista) {
-      // 1. LISTA DE PRODUCTOS
+
       case 'productos':
         return (
           <div className="admin-card">
@@ -106,7 +103,7 @@ const Admin = () => {
           </div>
         );
 
-      // 2. NUEVO PRODUCTO
+
       case 'nuevo_prod':
         return (
           <div className="admin-card" style={{maxWidth: '800px'}}>
@@ -144,7 +141,6 @@ const Admin = () => {
           </div>
         );
 
-      // 3. LISTA DE USUARIOS
       case 'usuarios':
         return (
             <div className="admin-card">
@@ -172,7 +168,7 @@ const Admin = () => {
             </div>
         );
 
-      // 4. NUEVO USUARIO
+    
       case 'nuevo_user':
         return (
             <div className="admin-card" style={{maxWidth: '500px'}}>
@@ -201,7 +197,7 @@ const Admin = () => {
             </div>
         );
 
-      // 5. AYUDA
+      
       case 'ayuda':
         return (
             <div className="admin-card">
@@ -234,7 +230,6 @@ const Admin = () => {
     }
   };
 
-  // --- RENDERIZADO PRINCIPAL (LAYOUT) ---
   return (
     <div className="admin-layout">
         {/* SIDEBAR */}
@@ -258,7 +253,6 @@ const Admin = () => {
             </div>
         </aside>
 
-        {/* CONTENIDO PRINCIPAL */}
         <main className="admin-content">
             <div className="content-header">
                 <h1>Panel de Control</h1>

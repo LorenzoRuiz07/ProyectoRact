@@ -1,16 +1,10 @@
-/* =========================================
-   ESTILOS DE SERVICIOS (Estética solamente)
-   ========================================= */
 
-/* Ajuste del contenedor para no chocar con las bandas */
 .servicios-container {
     padding: 40px 20px;
-    /* Esto es importante para que Bootstrap no ocupe el ancho total y tape las bandas */
     max-width: 85% !important; 
     z-index: 1; 
 }
 
-/* Tarjetas */
 .card-servicio {
     border: none;
     border-radius: 25px;
@@ -49,7 +43,6 @@
     line-height: 1.6;
 }
 
-/* Bandas Laterales */
 .banda-lateral {
     position: fixed;
     top: 0; bottom: 0; width: 80px;
@@ -60,7 +53,6 @@
 .banda-izquierda { left: 0; }
 .banda-derecha { right: 0; }
 
-/* Responsive para bandas */
 @media (max-width: 992px) {
     .servicios-container { max-width: 100% !important; }
     .banda-lateral { width: 40px; }
@@ -69,7 +61,6 @@
     .banda-lateral { display: none; }
 }
 
-/* Animación */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }

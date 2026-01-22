@@ -1,14 +1,10 @@
-/* ===============================
-   ESTILOS BASE (Compatibilidad)
-=============================== */
-/* Heredamos el body de home.css, pero aseguramos el fondo aquí por si acaso */
+
 body {
   background-color: #F5F1EA;
   color: #5d4037;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Contenedor Principal (Para Catálogo y Categorías) */
 .catalog-container {
   display: flex;
   max-width: 1200px;
@@ -18,11 +14,8 @@ body {
   min-height: 60vh;
 }
 
-/* ===============================
-   SIDEBAR (Barra Lateral)
-=============================== */
 .categories-sidebar {
-  flex: 1; /* Ocupa 1/4 del ancho */
+  flex: 1; 
   min-width: 220px;
   background: #fff;
   padding: 25px;
@@ -37,7 +30,7 @@ body {
   color: #4e342e;
   margin-bottom: 15px;
   font-size: 1.6rem;
-  border-bottom: 2px solid #f8c8dc; /* Rosa pastel */
+  border-bottom: 2px solid #f8c8dc; 
   padding-bottom: 10px;
 }
 
@@ -45,7 +38,7 @@ body {
 .categories-sidebar li { margin-bottom: 10px; }
 
 .categories-sidebar a, 
-.categories-sidebar li { /* A veces el JS pone click en el li */
+.categories-sidebar li { 
   text-decoration: none;
   color: #5d4037;
   font-weight: 600;
@@ -57,22 +50,18 @@ body {
 }
 
 .categories-sidebar li:hover {
-  background-color: #fdf0f6; /* Fondo rosa muy suave al pasar mouse */
+  background-color: #fdf0f6; 
   color: #e85a9d;
 }
 
-/* ===============================
-   GRILLA DE PRODUCTOS
-=============================== */
 .products-area { flex: 3; }
 
-.product-grid { /* Ojo: Tu JS busca el ID 'product-grid', usamos la clase para estilo */
+.product-grid { 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 25px;
 }
 
-/* TARJETA DE PRODUCTO (Aquí arreglamos las imágenes gigantes) */
 .product-card {
   background: white;
   border-radius: 15px;
@@ -92,11 +81,10 @@ body {
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* IMAGEN CONTROLADA */
 .product-card img {
   width: 100%;
-  height: 200px; /* ALTO FIJO: Esto evita el efecto "watom" */
-  object-fit: cover; /* Recorta la imagen para que no se deforme */
+  height: 200px;
+  object-fit: cover; 
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -105,7 +93,7 @@ body {
   font-size: 1.1rem;
   margin: 10px 0;
   color: #4e342e;
-  min-height: 50px; /* Para alinear títulos de 2 líneas */
+  min-height: 50px; 
 }
 
 .product-card .price {
@@ -115,7 +103,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* BOTONES DENTRO DE LA TARJETA */
 .product-card .buttons {
   display: flex;
   gap: 10px;
@@ -144,13 +131,6 @@ body {
 }
 .btn-detail:hover { background-color: #ddd; }
 
-
-/* ===============================
-   ESTILOS PAGINA CARRITO
-/* =========================================
-   ESTILOS DE LA PÁGINA CARRITO (Faltantes)
-   ========================================= */
-
 .carrito-main-container {
     max-width: 1100px;
     margin: 40px auto;
@@ -166,7 +146,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* TABLA */
 .tabla-container {
     background: white;
     border-radius: 20px;
@@ -231,7 +210,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* RESUMEN Y CUPÓN */
 .resumen-compra {
     display: flex;
     justify-content: space-between;

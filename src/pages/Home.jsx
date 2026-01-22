@@ -5,10 +5,6 @@ const Home = () => {
   return (
     <section className="hero">
       <div className="hero-img">
-        {/* 1. Barra al inicio: / (Indica carpeta public)
-           2. Carpetas con barra normal: img/
-           3. Extensión correcta: .png
-        */}
         <img src="/img/imagenTch.png" alt="Pastel de chocolate" />
       </div>
 

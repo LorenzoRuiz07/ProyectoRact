@@ -7,24 +7,21 @@ const Carrito = () => {
   const navigate = useNavigate();
   const [carrito, setCarrito] = useState([]);
   const [cuponInput, setCuponInput] = useState("");
-  const [descuento, setDescuento] = useState(0); // 0.10 es 10%
+  const [descuento, setDescuento] = useState(0); 
   const [mensajeCupon, setMensajeCupon] = useState(null);
 
-  // 1. Cargar carrito al iniciar
   useEffect(() => {
     const carritoGuardado = JSON.parse(localStorage.getItem("carrito")) || [];
     setCarrito(carritoGuardado);
   }, []);
 
-  // 2. Función para actualizar LocalStorage y Estado al mismo tiempo
   const actualizarTodo = (nuevoCarrito) => {
     setCarrito(nuevoCarrito);
     localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
-    // Disparamos evento para que el Navbar actualice el número
+
     window.dispatchEvent(new Event("storage"));
   };
 
-  // 3. Cambiar cantidad (+ o -)
   const cambiarCantidad = (id, mensaje, delta) => {
     const nuevoCarrito = carrito.map(item => {
       if (item.id === id && item.mensaje === mensaje) {
@@ -36,7 +33,6 @@ const Carrito = () => {
     actualizarTodo(nuevoCarrito);
   };
 
-  // 4. Eliminar producto
   const eliminarProducto = (id, mensaje) => {
     const confirmar = window.confirm("¿Seguro que quieres sacar esta delicia del carrito? 🥺");
     if (confirmar) {
@@ -45,7 +41,6 @@ const Carrito = () => {
     }
   };
 
-  // 5. Lógica de Cupones
   const aplicarCupon = () => {
     const codigo = cuponInput.trim().toUpperCase();
     
@@ -61,12 +56,10 @@ const Carrito = () => {
     }
   };
 
-  // 6. Cálculos de Totales
   const subtotal = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
   const montoDescuento = subtotal * descuento;
   const totalFinal = subtotal - montoDescuento;
 
-  // --- RENDERIZADO SI EL CARRITO ESTÁ VACÍO ---
   if (carrito.length === 0) {
     return (
       <div className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "70vh" }}>
@@ -85,12 +78,10 @@ const Carrito = () => {
     );
   }
 
-  // --- RENDERIZADO CON PRODUCTOS ---
   return (
     <div className="container carrito-main-container">
       <h1 className="titulo-carrito">Tu Carrito de Compras</h1>
 
-      {/* TABLA DE ITEMS */}
       <div className="tabla-container">
         <table className="tabla-carrito">
           <thead>
@@ -139,10 +130,8 @@ const Carrito = () => {
         </table>
       </div>
 
-      {/* RESUMEN Y CUPONES */}
       <div className="resumen-compra">
         
-        {/* LADO IZQUIERDO: CUPÓN */}
         <div className="cupon-box">
             <h4 style={{ fontFamily: 'Poppins', fontWeight: 'bold', color: '#4e342e' }}>🎟️ ¿Tienes un cupón?</h4>
             <div className="d-flex gap-2 mt-3">
@@ -162,7 +151,6 @@ const Carrito = () => {
             )}
         </div>
 
-        {/* LADO DERECHO: TOTALES */}
         <div className="total-box">
             <h3 style={{ fontFamily: 'Pacifico', marginBottom: '20px' }}>Resumen del Pedido</h3>
             

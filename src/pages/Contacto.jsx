@@ -3,42 +3,33 @@ import '../styles/home.css';
 import '../styles/contacto.css';
 
 const Contacto = () => {
-  // Estado para guardar los datos del formulario
   const [datos, setDatos] = useState({
     nombre: '',
     email: '',
     mensaje: ''
   });
 
-  // Función que se ejecuta cuando el usuario escribe
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDatos({ ...datos, [name]: value });
   };
 
-  // Función para simular el envío
   const handleSubmit = (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault();
     if (!datos.nombre || !datos.email || !datos.mensaje) {
       alert("Por favor completa todos los campos 🍰");
       return;
     }
     alert(`¡Gracias ${datos.nombre}! Hemos recibido tu mensaje. Te responderemos a ${datos.email} pronto.`);
-    // Limpiar formulario
     setDatos({ nombre: '', email: '', mensaje: '' });
   };
 
   return (
     <div className="position-relative" style={{ minHeight: '90vh', overflow: 'hidden' }}>
-      
-      {/* BANDAS LATERALES DECORATIVAS */}
       <div className="banda-lateral banda-izquierda"></div>
       <div className="banda-lateral banda-derecha"></div>
-
       <div className="container fade-in-container" style={{ padding: '60px 20px' }}>
         <div className="row justify-content-center align-items-center">
-          
-          {/* --- COLUMNA IZQUIERDA: INFORMACIÓN --- */}
           <div className="col-lg-5 mb-5 mb-lg-0">
             <div className="info-seccion">
               <h2>Contáctanos</h2>
@@ -51,19 +42,13 @@ const Contacto = () => {
                 <p><strong>📞 Teléfono:</strong> +56 9 1234 5678</p>
                 <p><strong>📧 Email:</strong> contacto@pasteleriaumai.cl</p>
               </div>
-
-              {/* CAJA DESTACADA */}
               <div className="destacado">
                 <h5 className="fw-bold" style={{ color: '#4e342e' }}>🕒 Horario de Atención</h5>
                 <p className="mb-0 text-muted">Lunes a Viernes: 09:00 - 19:00 hrs.</p>
                 <p className="mb-0 text-muted">Sábados: 10:00 - 14:00 hrs.</p>
               </div>
-
-              {/* REDES SOCIALES */}
               <div className="redes-contacto">
                 <h4 style={{ fontFamily: 'Poppins', fontSize: '1.2rem', fontWeight: 'bold' }}>Síguenos:</h4>
-                
-                {/* Nota: Asegúrate de tener estas imágenes en public/Img o usa los emojis como fallback */}
                 <a href="#" className="item-red">
                   <span style={{ fontSize: '1.5rem', marginRight: '10px' }}>📸</span> Instagram
                 </a>
@@ -76,8 +61,7 @@ const Contacto = () => {
               </div>
             </div>
           </div>
-
-          {/* --- COLUMNA DERECHA: FORMULARIO --- */}
+          
           <div className="col-lg-5 offset-lg-1">
             <div className="card-contacto">
               <div className="text-center mb-4">
