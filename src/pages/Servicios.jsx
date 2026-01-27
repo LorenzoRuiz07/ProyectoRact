@@ -55,7 +55,7 @@ const Servicios = () => {
               </p>
             </div>
           </div>
-}
+
           <div className="col-12 col-md-6 col-lg-4">
             <div className="card-servicio h-100">
               <span className="icon-servicio">🎂</span>
