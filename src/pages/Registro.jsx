@@ -1,88 +1,108 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../styles/login.css';
+import '../styles/login.css'; // Usamos los mismos estilos del Login
 
 const Registro = () => {
   const navigate = useNavigate();
-
-  const [formData, setFormData] = useState({
+  
+  const [form, setForm] = useState({
     nombre: '',
     email: '',
-    edad: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
   });
 
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleRegistro = (e) => {
+  const handleRegistro = async (e) => {
     e.preventDefault();
+    setError('');
 
-    if (formData.password !== formData.confirmPassword) {
-      setError("Las contraseñas no coinciden ❌");
-      return;
+    try {
+        // Preparamos el usuario (Por defecto todos son CLIENTES)
+        const nuevoUsuario = { 
+            nombre: form.nombre,
+            email: form.email,
+            password: form.password,
+            rol: 'cliente' // 👈 Importante para que no se registren como admin
+        };
+
+        // Petición al Backend
+        const response = await fetch("http://localhost:8080/api/usuarios", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(nuevoUsuario)
+        });
+
+        if (response.ok) {
+            alert("¡Cuenta creada con éxito! 🍰 Ahora puedes iniciar sesión.");
+            navigate('/login');
+        } else {
+            setError("Hubo un error. Puede que el correo ya esté usado.");
+        }
+
+    } catch (err) {
+        console.error(err);
+        setError("Error de conexión con el servidor");
     }
-    if (formData.edad < 18) {
-      setError("Debes ser mayor de edad para registrarte 🔞");
-      return;
-    }
-
-    const usuarioNuevo = {
-      nombre: formData.nombre,
-      email: formData.email,
-      password: formData.password
-    };
-
-    localStorage.setItem('usuario_registrado', JSON.stringify(usuarioNuevo));
-
-    alert("¡Cuenta creada con éxito! Ahora inicia sesión 🍰");
-    navigate('/login');
   };
 
   return (
     <div className="login-wrapper">
       <div className="login-card">
-        <div style={{ fontSize: '3rem' }}>🍰</div>
-        <h2>Crea tu cuenta</h2>
+        <h2>Crear Cuenta 🍪</h2>
         
-        {error && <div className="error-msg">{error}</div>}
-
         <form onSubmit={handleRegistro}>
+          
           <div className="input-group">
             <label>Nombre Completo</label>
-            <input type="text" name="nombre" required placeholder="Tu nombre..." onChange={handleChange} />
+            <input 
+                type="text" 
+                name="nombre"
+                placeholder="Ej. Juan Pérez" 
+                value={form.nombre}
+                onChange={handleChange}
+                required
+            />
           </div>
 
           <div className="input-group">
             <label>Correo Electrónico</label>
-            <input type="email" name="email" required placeholder="ejemplo@correo.com" onChange={handleChange} />
-          </div>
-
-          <div className="input-group">
-            <label>Edad</label>
-            <input type="number" name="edad" required placeholder="Tu edad" onChange={handleChange} />
+            <input 
+                type="email" 
+                name="email"
+                placeholder="nombre@ejemplo.com" 
+                value={form.email}
+                onChange={handleChange}
+                required
+            />
           </div>
 
           <div className="input-group">
             <label>Contraseña</label>
-            <input type="password" name="password" required placeholder="Mínimo 8 caracteres" onChange={handleChange} />
+            <input 
+                type="password" 
+                name="password"
+                placeholder="••••••••" 
+                value={form.password}
+                onChange={handleChange}
+                required
+            />
           </div>
 
-          <div className="input-group">
-            <label>Confirmar Contraseña</label>
-            <input type="password" name="confirmPassword" required placeholder="Repite la contraseña" onChange={handleChange} />
-          </div>
+          {error && <div className="text-danger mb-3" style={{color: 'red'}}>{error}</div>}
 
-          <button type="submit" className="btn-login">Registrarme 🥐</button>
+          <button type="submit" className="btn-login-submit">
+            Registrarme
+          </button>
         </form>
 
-        <div className="link-registro">
-          ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
-        </div>
+        <p style={{marginTop: '20px', fontSize: '0.9rem'}}>
+            ¿Ya tienes cuenta? <Link to="/login" style={{color: '#e85a9d', fontWeight: 'bold'}}>Inicia Sesión</Link>
+        </p>
       </div>
     </div>
   );

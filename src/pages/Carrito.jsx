@@ -18,7 +18,6 @@ const Carrito = () => {
   const actualizarTodo = (nuevoCarrito) => {
     setCarrito(nuevoCarrito);
     localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
-
     window.dispatchEvent(new Event("storage"));
   };
 
@@ -46,13 +45,58 @@ const Carrito = () => {
     
     if (codigo === "FELICES50") {
       setDescuento(0.10);
-      setMensajeCupon({ texto: "¡Cupón UMAI10 aplicado! 10% OFF 🎉", tipo: "exito" });
+      setMensajeCupon({ texto: "¡Cupón aplicado! 10% OFF 🎉", tipo: "exito" });
     } else if (codigo === "DULCE20") {
       setDescuento(0.20);
       setMensajeCupon({ texto: "¡Súper descuento DULCE20 aplicado! 20% OFF 🍰", tipo: "exito" });
     } else {
       setDescuento(0);
-      setMensajeCupon({ texto: "Cupón no válido 😢", tipo: "error" });
+      setMensajeCupon({ texto: "Cupón no válido :(", tipo: "error" });
+    }
+  };
+
+  // --- LÓGICA DE COMPRA NUEVA ---
+  const finalizarCompra = async () => {
+    // 1. Verificar sesión
+    const usuarioStorage = localStorage.getItem("usuario");
+    if (!usuarioStorage) {
+        alert("🔒 Debes iniciar sesión para finalizar tu pedido.");
+        navigate('/login');
+        return;
+    }
+    const usuario = JSON.parse(usuarioStorage);
+
+    // 2. Preparar datos para el Backend
+    const detalleTexto = carrito.map(item => 
+        `${item.nombre} x${item.cantidad} ${item.mensaje ? `(${item.mensaje})` : ''}`
+    ).join(", ");
+
+    const nuevaCompra = {
+        nombreCliente: usuario.nombre,
+        emailCliente: usuario.email,
+        total: totalFinal, // Usamos el total ya calculado con descuentos
+        detalleCompra: detalleTexto
+    };
+
+    try {
+        const response = await fetch("http://localhost:8080/api/compras", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(nuevaCompra)
+        });
+
+        if (response.ok) {
+            alert(`¡Compra realizada con éxito! 🎉\n\nResumen:\n${detalleTexto}\n\nTotal pagado: $${totalFinal.toLocaleString("es-CL")}`);
+            
+            // Vaciar carrito
+            actualizarTodo([]); 
+            navigate('/'); 
+        } else {
+            alert("Hubo un problema al procesar la compra. Inténtalo de nuevo.");
+        }
+    } catch (error) {
+        console.error("Error al comprar:", error);
+        alert("Error de conexión con el servidor.");
     }
   };
 
@@ -100,7 +144,6 @@ const Carrito = () => {
                     <img src={`/${item.imagen}`} alt={item.nombre} className="item-img-carrito" />
                     <div>
                         <div className="fw-bold text-cacao">{item.nombre}</div>
-                        {/* Si tiene dedicatoria, la mostramos pequeña */}
                         {item.mensaje && (
                             <small className="text-muted d-block">
                                 💌 "{item.mensaje}"
@@ -171,7 +214,7 @@ const Carrito = () => {
                 <span>${totalFinal.toLocaleString("es-CL")}</span>
             </div>
 
-            <button className="btn-pagar" onClick={() => alert("¡Redirigiendo a pasarela de pago! 💳 (Simulación)")}>
+            <button className="btn-pagar" onClick={finalizarCompra}>
                 Pagar Ahora
             </button>
         </div>

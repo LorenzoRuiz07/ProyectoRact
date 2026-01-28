@@ -154,3 +154,55 @@ body {
         font-size: 3rem;
     }
 }
+
+/* --- AGREGAR AL FINAL DE home.css --- */
+
+/* Contenedor de usuario logueado */
+.user-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+/* Nombre del usuario (estilo Pacifico como el resto) */
+.user-name {
+    font-family: 'Pacifico', cursive;
+    color: #4e342e;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+/* Botón de Salir (Rojo suave para diferenciar) */
+.btn-logout {
+    background-color: transparent;
+    color: #d32f2f;
+    border: 2px solid #d32f2f;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #d32f2f;
+    color: white;
+}
+
+/* Botón Panel Admin (Dorado/Amarillo) */
+.btn-admin {
+    background-color: #ffca28;
+    color: #5d4037;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-admin:hover {
+    background-color: #ffb300;
+}
