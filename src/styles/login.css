@@ -1,93 +1,91 @@
-
-.login-wrapper {
+/* Fondo general de la pantalla: Un degradado suave pastel */
+.login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  padding: 20px;
-  background: #F5F1EA; 
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  /* Opcional: Si prefieres un tono más pastelero usa este background: */
+  /* background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%); */
 }
 
-.login-card {
+/* La tarjeta blanca del centro */
+.login-box {
   background: white;
-  padding: 40px;
+  padding: 2.5rem;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 420px;
+  max-width: 400px; /* Esto evita que se estire como chicle */
   text-align: center;
-  border: 1px solid #f0e6d2;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.login-card h2 {
-  font-family: 'Pacifico', cursive;
-  color: #4e342e;
-  font-size: 2.2rem;
-  margin-bottom: 25px;
+/* Títulos */
+.login-title {
+  color: #4e342e; /* Marrón chocolate */
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
+.login-subtitle {
+  color: #888;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* Grupos de inputs */
 .input-group {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
   text-align: left;
+  margin-bottom: 1.2rem;
 }
 
 .input-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: #5d4037;
-  font-weight: bold;
   font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
 
 .input-group input {
-  width: 100%;
   padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border: 2px solid #eee;
+  border-radius: 12px;
   font-size: 1rem;
-  transition: border 0.3s;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
 .input-group input:focus {
-  outline: none;
-  border-color: #ff85a1; 
+  border-color: #e85a9d; 
+  box-shadow: 0 0 0 3px rgba(232, 90, 157, 0.1);
 }
 
-.btn-login {
-  width: 100%;
-  background-color: #ff85a1;
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 10px;
+
+.btn-login-submit {
+  transition: transform 0.2s, background-color 0.2s;
 }
 
-.btn-login:hover {
-  background-color: #e06c8b;
+.btn-login-submit:hover {
+  background-color: #d04685 !important;
+  transform: translateY(-2px);
 }
 
-.link-registro {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #666;
+.btn-login-submit:active {
+  transform: translateY(0);
 }
 
-.link-registro a {
-  color: skyblue;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.error-msg {
-  color: red;
-  background: #ffe6e6;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-size: 0.9rem;
+/* Animación de entrada suave */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }

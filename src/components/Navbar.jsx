@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo">Pasteleria ¡Umai!</div>
+      <div className="logo">Pastelería ¡Umai!</div>
       
       <ul className="nav-links">
         <li><Link to="/">Inicio</Link></li>
