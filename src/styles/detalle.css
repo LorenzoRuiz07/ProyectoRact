@@ -1,0 +1,175 @@
+/* src/styles/detalle.css */
+
+.detalle-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #4e342e; /* Café Umai */
+}
+
+/* Botón Volver */
+.btn-volver {
+    background: transparent;
+    border: none;
+    color: #4e342e;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+.btn-volver:hover {
+    transform: translateX(-5px);
+    color: #e85a9d;
+}
+
+/* Tarjeta Principal */
+.detalle-card {
+    display: flex;
+    gap: 50px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Columna Imagen */
+.img-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+.detalle-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(78, 52, 46, 0.15);
+}
+
+/* Columna Info */
+.info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo-detalle {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #4e342e;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.categoria-badge {
+    background-color: #ffe0e6;
+    color: #d63384;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.descripcion-detalle {
+    font-size: 1.1rem;
+    color: #6d5650;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.precio-detalle {
+    font-size: 2.2rem;
+    color: #e85a9d;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Sección de Controles (Contador + Botón) */
+.actions-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Contador */
+.contador-umai {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e85a9d;
+    border-radius: 50px;
+    overflow: hidden;
+    background: white;
+}
+
+.btn-contador {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    color: #e85a9d;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-contador:hover {
+    background: #fff0f6;
+}
+
+.numero-contador {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4e342e;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Botón Agregar Principal */
+.btn-agregar-carrito {
+    background-color: skyblue;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(232, 90, 157, 0.4);
+    transition: transform 0.2s, background 0.2s;
+    flex-grow: 1; /* Ocupa el espacio restante en móviles */
+    text-align: center;
+}
+
+.btn-agregar-carrito:hover {
+    background-color: #4e342e;
+    transform: translateY(-2px);
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .detalle-card {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .img-container {
+        max-width: 100%;
+    }
+
+    .detalle-img {
+        height: 300px;
+    }
+
+    .titulo-detalle {
+        font-size: 2rem;
+    }
+}

@@ -17,7 +17,7 @@ const Carrito = () => {
   const [compraExitosa, setCompraExitosa] = useState(null); 
 
   useEffect(() => {
-    const carritoGuardado = JSON.parse(localStorage.getItem("carrito")) || [];
+    const carritoGuardado = JSON.parse(localStorage.getItem("carritoUmai")) || [];
     setCarrito(carritoGuardado);
   }, []);
 
@@ -28,7 +28,7 @@ const Carrito = () => {
 
   const actualizarTodo = (nuevoCarrito) => {
     setCarrito(nuevoCarrito);
-    localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
+    localStorage.setItem("carritoUmai", JSON.stringify(nuevoCarrito));
     window.dispatchEvent(new Event("storage"));
   };
 

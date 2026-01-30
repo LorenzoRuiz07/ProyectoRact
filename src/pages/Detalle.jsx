@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { obtenerProductoPorId } from '../services/api'; // <--- Importamos la nueva función
+import { obtenerProductoPorId } from '../services/api'; 
 
-const Detalle = ({ agregarAlCarrito }) => { // Asumo que recibes la función del carrito
+// IMPORTAMOS TU NUEVO CSS
+import '../styles/detalle.css'; 
+
+const Detalle = ({ agregarAlCarrito }) => { 
   const { id } = useParams();
   const navigate = useNavigate();
+  
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
+  
+  // 1. ESTADO LOCAL (El contador del mesero)
+  const [cantidad, setCantidad] = useState(1);
 
   useEffect(() => {
     const cargarDetalle = async () => {
@@ -15,42 +22,79 @@ const Detalle = ({ agregarAlCarrito }) => { // Asumo que recibes la función del
         setProducto(data);
       } else {
         alert("Producto no encontrado");
-        navigate('/');
+        navigate('/catalogo');
       }
       setLoading(false);
     };
     cargarDetalle();
   }, [id, navigate]);
 
-  if (loading) return <div>Cargando pastel... 🍰</div>;
+  // 2. FUNCIONES DEL CONTADOR LOCAL
+  const restar = () => {
+    if (cantidad > 1) setCantidad(cantidad - 1);
+  };
+
+  const sumar = () => {
+    // Si tuvieras stock en la BD, aquí podrías poner: if (cantidad < producto.stock) ...
+    setCantidad(cantidad + 1);
+  };
+
+  if (loading) return <div style={{textAlign:'center', marginTop:'50px', color:'#4e342e'}}>Cargando dulzura... 🍰</div>;
   if (!producto) return null;
 
   return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-6">
+    <div className="detalle-container">
+      
+      {/* Botón Volver */}
+      <button className="btn-volver" onClick={() => navigate(-1)}>
+        ← Volver al catálogo
+      </button>
+
+      <div className="detalle-card">
+        
+        {/* LADO IZQUIERDO: IMAGEN */}
+        <div className="img-container">
           <img 
             src={producto.imagen} 
             alt={producto.nombre} 
-            className="img-fluid rounded" 
+            className="detalle-img"
             onError={(e) => e.target.src = "https://via.placeholder.com/400"}
           />
         </div>
-        <div className="col-md-6">
-          <h2>{producto.nombre}</h2>
-          <h3 className="text-primary">${producto.precio.toLocaleString('es-CL')}</h3>
-          <p className="mt-3">{producto.descripcion}</p>
-          <span className="badge bg-warning text-dark mb-3">{producto.categoria}</span>
-          <br/>
-          <button 
-            className="btn btn-success btn-lg mt-3"
-            onClick={() => agregarAlCarrito(producto)}
-          >
-            Añadir al Carrito 🛒
-          </button>
-          <button className="btn btn-outline-secondary mt-3 ms-2" onClick={() => navigate('/')}>
-            Volver
-          </button>
+
+        {/* LADO DERECHO: INFORMACIÓN */}
+        <div className="info-container">
+          
+          <h1 className="titulo-detalle">{producto.nombre}</h1>
+          <span className="categoria-badge">{producto.categoria}</span>
+          
+          <p className="descripcion-detalle">
+            {producto.descripcion}
+          </p>
+
+          <div className="precio-detalle">
+            ${producto.precio.toLocaleString('es-CL')}
+          </div>
+
+          <div className="actions-container">
+            
+            {/* CONTADOR DE CANTIDAD */}
+            <div className="contador-umai">
+                <button onClick={restar} className="btn-contador">−</button>
+                <span className="numero-contador">{cantidad}</span>
+                <button onClick={sumar} className="btn-contador">+</button>
+            </div>
+
+            {/* BOTÓN AGREGAR (Envía el producto y la cantidad a App.js) */}
+            <button 
+              className="btn-agregar-carrito"
+              onClick={() => agregarAlCarrito(producto, cantidad)}
+            >
+              Agregar al Carrito 
+            </button>
+
+          </div>
+
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const actualizarDatos = () => {
     // 1. Actualizar Carrito
-    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const carrito = JSON.parse(localStorage.getItem("carritoUmai")) || [];
     const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
     setCartCount(total);
 

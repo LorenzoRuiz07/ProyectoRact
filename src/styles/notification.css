@@ -1,0 +1,49 @@
+/* src/styles/notification.css */
+
+.notificacion-container {
+    position: fixed;
+    top: -150px; /* 1. Lo subimos más para que tenga espacio */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    min-width: 300px;
+    max-width: 90%;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    white-space: pre-line;
+    
+    /* 2. MAGIA PARA QUE DESAPAREZCA */
+    opacity: 0;           /* Totalmente transparente cuando está oculta */
+    visibility: hidden;   /* No se puede clickear cuando está oculta */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Clase para cuando está visible */
+.notificacion-visible {
+    top: 30px;
+    opacity: 1;          /* Se vuelve visible */
+    visibility: visible; /* Se vuelve tangible */
+}
+
+/* Tipos de alerta */
+.tipo-success {
+    background-color: #d1e7dd;
+    border-left: 6px solid #198754;
+    color: #0f5132;
+}
+
+.tipo-error {
+    background-color: #f8d7da;
+    border-left: 6px solid #dc3545;
+    color: #842029;
+}
+
+.icono-noti {
+    font-size: 1.5rem;
+}
