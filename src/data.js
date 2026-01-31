@@ -16,10 +16,10 @@ export const productos = [
     categoria: "Tortas Cuadradas",
     nombre: "Torta Cuadrada de Chocolate",
     precio: 45000,
-    imagen: "img/tortacuadradachocolate.jpg", // Ojo con esto (lo veremos en el paso de imágenes)
+    imagen: "img/tortacuadradachocolate.jpg",
     descripcion: "Deliciosa torta de chocolate con capas de ganache y un toque de avellanas. Personalizable con mensajes especiales."
   },
- {
+  {
     id: "TC002",
     categoria: "Tortas Cuadradas",
     nombre: "Torta Cuadrada de Frutas",

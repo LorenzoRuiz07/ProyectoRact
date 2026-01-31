@@ -4,18 +4,16 @@ import '../styles/home.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // 👈 IMPORTANTE: Detecta cambio de página
+  const location = useLocation(); 
   
   const [cartCount, setCartCount] = useState(0);
   const [usuario, setUsuario] = useState(null);
 
   const actualizarDatos = () => {
-    // 1. Actualizar Carrito
     const carrito = JSON.parse(localStorage.getItem("carritoUmai")) || [];
     const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
     setCartCount(total);
 
-    // 2. Actualizar Usuario (Login/Logout)
     const userStored = JSON.parse(localStorage.getItem("usuario"));
     setUsuario(userStored);
   };
@@ -23,10 +21,9 @@ const Navbar = () => {
   useEffect(() => {
     actualizarDatos();
     
-    // Escuchar cambios en localStorage (por si abres otra pestaña)
     window.addEventListener('storage', actualizarDatos);
     return () => window.removeEventListener('storage', actualizarDatos);
-  }, [location]); // 👈 Se ejecuta cada vez que cambias de ruta
+  }, [location]);
 
   const handleLogout = () => {
       localStorage.removeItem("usuario");
@@ -53,13 +50,10 @@ const Navbar = () => {
         </li>
       </ul>
 
-      {/* 👇 LÓGICA DE SESIÓN 👇 */}
       {usuario ? (
-        // SI ESTÁ LOGUEADO:
         <div className="user-panel">
             <span className="user-name">Bienvenido, {usuario.nombre} </span>
             
-            {/* Si es admin mostramos botón al panel */}
             {usuario.rol === 'admin' && (
                 <button className="btn-admin" onClick={() => navigate('/admin')}>Panel</button>
             )}
@@ -67,7 +61,6 @@ const Navbar = () => {
             <button className="btn-logout" onClick={handleLogout}>Salir</button>
         </div>
       ) : (
-        // SI NO ESTÁ LOGUEADO:
         <div className="btnLogin">
             <Link to="/login">
                 <button>Iniciar Sesion</button>

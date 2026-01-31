@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/notification.css';
 
 const Notification = ({ mensaje, tipo, visible }) => {
-  // Definimos iconos según el tipo
   const icono = tipo === 'success' ? '🍰' : '🛑';
 
   return (
